@@ -3,9 +3,13 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useCart } from './CartContext';
 import { useWishlist } from './WishlistContext';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 const gadgetsData = [
-    // Cricket Equipment
+  
     {
         product_id: 1,
         product_title: "Stylish Cricket Bat",
@@ -160,7 +164,7 @@ const gadgetsData = [
 const Details = () => {
     const { id } = useParams();
     const product = gadgetsData.find(item => item.product_id === parseInt(id));
-    
+
     const { addToCart } = useCart(); 
     const { addToWishlist, wishlistItems } = useWishlist();
     
@@ -173,26 +177,30 @@ const Details = () => {
     }
 
     const handleAddToCart = () => {
-        addToCart(product); 
+        addToCart(product);
+        toast.success(`${product.product_title} added to cart!`); // Show success toast
     };
 
     const handleAddToWishlist = () => {
         if (!isWishlisted) {
             addToWishlist(product);
             setIsWishlisted(true);
+            toast.info(`${product.product_title} added to wishlist!  `,
+               
+            ); 
         }
     };
 
     return (
        <div className='mb-72'>
        <div>
-       <div className='bg-purple-500 w-full h-[400px] p-6 mt-[-500px] z-10  '>
+       <div className='bg-purple-500 w-full h-[400px] p-6 mt-[-500px] z-10'>
             <h2 className='text-3xl font-bold text-white text-center'> Details</h2>
             <p className='text-white text-center'>Explore the latest gadgets that will take your experience to the next level.
             From smart devices to the coolest accessories, we have it all!</p>
         </div>
        </div>
-         <div className="container mx-auto  border lg:w-[700px] w-[300px] shadow-md md:w-[600px] relative -my-56  bg-white  rounded-lg p-4">
+         <div className="container mx-auto border lg:w-[700px] w-[300px] shadow-md md:w-[600px] relative -my-56 bg-white rounded-lg p-4">
             <div className="flex flex-col md:flex-row">
                 <img src={product.product_image} alt={product.product_title} className="w-full md:w-1/2 rounded-lg" />
                 <div className="md:ml-4">
@@ -224,6 +232,7 @@ const Details = () => {
                 </div>
             </div>
         </div>
+        <ToastContainer position='top-center' />
        </div>
     );
 };
