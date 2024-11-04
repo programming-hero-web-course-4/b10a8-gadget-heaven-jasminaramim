@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 
 import CategoriesSidebar from '../components/CategoriesSidebar';
 import GadgetsGrid from '../components/GadgetsGrid';
+// import Banner from './Banner';
 
 
 const gadgetsData = [
@@ -170,6 +171,7 @@ const Home = () => {
     return (
         <div className="container mx-auto p-4">
             {/* <Navbar /> */}
+            {/* <Banner></Banner> */}
             <div className="flex mt-6">
                
                 <div className="w-2/4 lg:w-1/4 mt-4 mr-4">
@@ -178,6 +180,7 @@ const Home = () => {
                         selectedCategory={selectedCategory} 
                         onCategorySelect={setSelectedCategory} 
                     />
+                    
                 </div>
                 
               
