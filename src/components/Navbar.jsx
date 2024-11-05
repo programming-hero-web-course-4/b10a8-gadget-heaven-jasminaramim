@@ -1,5 +1,4 @@
 
-
 import React from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { FiShoppingCart, FiHeart } from 'react-icons/fi';
@@ -12,11 +11,9 @@ const Navbar = () => {
     const { wishlistItems } = useWishlist(); 
     const location = useLocation(); 
 
- 
     const isHomePage = location.pathname === '/';
     const isCategoryPage = location.pathname.startsWith('/home/');
 
-  
     const navbarBgColor = isHomePage || isCategoryPage ? 'bg-purple-600 text-white' : 'bg-white text-purple-600';
 
     return (
@@ -51,10 +48,17 @@ const Navbar = () => {
                     >
                         Dashboard
                     </NavLink>
+                    <NavLink
+                        to="/about-us"
+                        className={({ isActive }) =>
+                            isActive ? 'text-purple-600 font-semibold lg:text-xl text-xs' : 'hover:text-gray-300 lg:text-xl text-xs'
+                        }
+                    >
+                        About Us
+                    </NavLink>
                 </div>
 
                 <div className="flex space-x-4">
-               
                     <div className="relative">
                         <button className="lg:w-10 lg:h-10 mt-2 lg:mt-0 ml-2 lg:ml-0 w-5 h-5 bg-white rounded-full flex items-center justify-center text-purple-600 hover:bg-gray-200">
                             <FiShoppingCart className='w-4' size={20} />
@@ -83,7 +87,7 @@ const Navbar = () => {
             {(isHomePage || isCategoryPage) && (
                 <div className="mt-10 text-center">
                     <h2 className="text-4xl text-white font-extrabold mb-4">
-                        Upgrade Your Tech Accessorize with Gadget Heaven Accessories
+                        Upgrade Your Tech Accessories with Gadget Heaven
                     </h2>
                     <p className="text-lg text-white mb-8">
                         Explore the latest gadgets that will take your experience to the next level. From smart devices to the coolest accessories, we have it all!

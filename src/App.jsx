@@ -6,6 +6,7 @@ import Dashboard from './components/Dashboard';
 import Stats from './components/Stats';
 import Home from './components/Home';
 import Details from './components/Details';
+import AboutUs from './components/AboutUs'; 
 
 import { CartProvider } from './components/CartContext';
 import { WishlistProvider } from './components/WishlistContext';
@@ -13,15 +14,15 @@ import NotFound from './components/NotFound';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Banner from './components/Banner';
-import Footer from '../Footer';
+
 import CategoryPage from './CategoryPage';
+import Footer from '../Footer';
 
 const AppRoutes = () => {
     const location = useLocation();
 
     return (
         <>
-
             {location.pathname === '/' && <Banner />}
             <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} />
             <Routes>
@@ -73,18 +74,29 @@ const AppRoutes = () => {
                         </>
                     }
                 />
-                <Route path="/home/:category"
+                <Route 
+                    path="/about-us" 
                     element={
-
                         <>
                             <Helmet>
-
+                                <title>About Us - Gadget Heaven</title>
+                                <link rel="icon" href="https://raw.githubusercontent.com/ProgrammingHero1/B10-A8-gadget-heaven/refs/heads/main/assets/favicon-16x16.png" />
+                            </Helmet>
+                            <AboutUs />
+                        </>
+                    }
+                />
+                <Route 
+                    path="/home/:category" 
+                    element={
+                        <>
+                            <Helmet>
                                 <link rel="icon" href="https://raw.githubusercontent.com/ProgrammingHero1/B10-A8-gadget-heaven/refs/heads/main/assets/favicon-16x16.png" />
                             </Helmet>
                             <CategoryPage />
-                        </>}
-
-                /> {/* Nested route */}
+                        </>
+                    }
+                />
 
                 <Route
                     path="*"
@@ -102,6 +114,7 @@ const AppRoutes = () => {
         </>
     );
 };
+
 const App = () => {
     return (
         <HelmetProvider>
