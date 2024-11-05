@@ -51,4 +51,4 @@ To run the project locally, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone YOUR_REPOSITORY_LINK
+  https://github.com/programming-hero-web-course-4/b10a8-gadget-heaven-jasminaramim.git
