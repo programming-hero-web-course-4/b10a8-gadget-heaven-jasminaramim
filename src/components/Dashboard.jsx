@@ -52,13 +52,13 @@ const Dashboard = () => {
                 <div className="flex justify-center mt-20 space-x-4 mb-6">
                     <button
                         onClick={() => setActiveTab("Cart")}
-                        className={`px-4 py-2 ${activeTab === "Cart" ? "bg-purple-600 text-white" : "bg-gray-200 text-gray-700"} rounded`}
+                        className={`px-6 py-2 font-bold rounded-full ${activeTab === "Cart" ? "bg-white text-purple-700 " : "bg-purple-500 text-white border border-white"} rounded`}
                     >
                         Cart
                     </button>
                     <button
                         onClick={() => setActiveTab("Wish List")}
-                        className={`px-4 py-2 ${activeTab === "Wish List" ? "bg-purple-600 text-white" : "bg-gray-200 text-gray-700"} rounded`}
+                        className={`px-4 py-2 font-bold rounded-full  ${activeTab === "Wish List" ? "bg-white text-purple-700" : "bg-purple-500 text-white border border-white"} rounded`}
                     >
                         Wish List
                     </button>
@@ -75,13 +75,13 @@ const Dashboard = () => {
                             </div>
                             <button
                                 onClick={sortByPrice}
-                                className="bg-purple-500 text-white lg:text-xl lg:px-4 lg:py-2 text-xs p-1 rounded"
+                                className="bg-purple-500 text-white  lg:text-xl lg:px-4 lg:py-2 text-xs p-1 rounded-full"
                             >
                                 Sort by Price
                             </button>
                             <button
                                 onClick={handlePurchase}
-                                className={`bg-green-600 text-white lg:text-xl lg:px-4 lg:py-2 text-xs p-1 rounded ${cartItems.length === 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
+                                className={`bg-green-600 text-white lg:text-xl lg:px-4 lg:py-2 text-xs p-1 rounded-full ${cartItems.length === 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
                                 disabled={cartItems.length === 0}
                             >
                                 Purchase
@@ -90,7 +90,7 @@ const Dashboard = () => {
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                         {sortedCartItems.map((item) => (
-                            <div key={item.product_id} className="border p-4 rounded-lg shadow">
+                            <div key={item.product_id} className="border  p-4 rounded-lg shadow">
                                 <img src={item.product_image} alt={item.product_title} className="lg:w-full w-[300px] lg:h-32 lg:object-cover rounded" />
                                 <h3 className="text-lg font-semibold mt-2">{item.product_title}</h3>
                                 <p className="text-gray-600">${item.price.toFixed(2)}</p>

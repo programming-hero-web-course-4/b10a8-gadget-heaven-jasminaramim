@@ -1,5 +1,4 @@
 
-import React from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 import Navbar from './components/Navbar';
@@ -7,24 +6,27 @@ import Dashboard from './components/Dashboard';
 import Stats from './components/Stats';
 import Home from './components/Home';
 import Details from './components/Details';
+
 import { CartProvider } from './components/CartContext';
 import { WishlistProvider } from './components/WishlistContext';
 import NotFound from './components/NotFound';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Banner from './components/Banner';
+import Footer from '../Footer';
+import CategoryPage from './CategoryPage';
 
 const AppRoutes = () => {
     const location = useLocation();
 
     return (
         <>
-            
+
             {location.pathname === '/' && <Banner />}
             <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} />
             <Routes>
-                <Route 
-                    path="/" 
+                <Route
+                    path="/"
                     element={
                         <>
                             <Helmet>
@@ -33,10 +35,10 @@ const AppRoutes = () => {
                             </Helmet>
                             <Home />
                         </>
-                    } 
+                    }
                 />
-                <Route 
-                    path="/details/:id" 
+                <Route
+                    path="/details/:id"
                     element={
                         <>
                             <Helmet>
@@ -45,10 +47,10 @@ const AppRoutes = () => {
                             </Helmet>
                             <Details />
                         </>
-                    } 
+                    }
                 />
-                <Route 
-                    path="/dashboard" 
+                <Route
+                    path="/dashboard"
                     element={
                         <>
                             <Helmet>
@@ -57,10 +59,10 @@ const AppRoutes = () => {
                             </Helmet>
                             <Dashboard />
                         </>
-                    } 
+                    }
                 />
-                <Route 
-                    path="/stats" 
+                <Route
+                    path="/stats"
                     element={
                         <>
                             <Helmet>
@@ -69,10 +71,23 @@ const AppRoutes = () => {
                             </Helmet>
                             <Stats />
                         </>
-                    } 
+                    }
                 />
-                <Route 
-                    path="*" 
+                <Route path="/home/:category"
+                    element={
+
+                        <>
+                            <Helmet>
+
+                                <link rel="icon" href="https://raw.githubusercontent.com/ProgrammingHero1/B10-A8-gadget-heaven/refs/heads/main/assets/favicon-16x16.png" />
+                            </Helmet>
+                            <CategoryPage />
+                        </>}
+
+                /> {/* Nested route */}
+
+                <Route
+                    path="*"
                     element={
                         <>
                             <Helmet>
@@ -81,13 +96,12 @@ const AppRoutes = () => {
                             </Helmet>
                             <NotFound />
                         </>
-                    } 
+                    }
                 />
             </Routes>
         </>
     );
 };
-
 const App = () => {
     return (
         <HelmetProvider>
@@ -96,6 +110,7 @@ const App = () => {
                     <Router>
                         <Navbar />
                         <AppRoutes />
+                        <Footer />
                     </Router>
                 </CartProvider>
             </WishlistProvider>

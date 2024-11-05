@@ -1,13 +1,5 @@
-
-import React, { useState } from 'react';
-
-import CategoriesSidebar from '../components/CategoriesSidebar';
-import GadgetsGrid from '../components/GadgetsGrid';
-
-
-
 const gadgetsData = [
-    // First Category: Cricket Equipment (6 items)
+  
     {
         product_id: 1,
         product_title: "Stylish Cricket Bat",
@@ -30,11 +22,12 @@ const gadgetsData = [
         availability: true,
         rating: 4.7
     },
+    // Cricket Gear
     {
         product_id: 3,
         product_title: "Cricket Helmet",
         product_image: "https://img.freepik.com/free-photo/cricket-match-with-player_23-2151702191.jpg?uid=R121149122&ga=GA1.1.1810294565.1709915967&semt=ais_hybrid",
-        category: "Cricket Equipment",
+        category: "Cricket Gear",
         price: 69.99,
         description: "Lightweight helmet with a comfortable fit.",
         Specification: ["Size: Adjustable", "Material: Polycarbonate"],
@@ -45,7 +38,7 @@ const gadgetsData = [
         product_id: 4,
         product_title: "Cricket Pads",
         product_image: "https://images.unsplash.com/photo-1620052829703-65de1f1c788e",
-        category: "Cricket Equipment",
+        category: "Cricket Gear",
         price: 49.99,
         description: "High-quality batting pads for extra protection.",
         Specification: ["Material: PVC", "Size: Standard"],
@@ -56,7 +49,7 @@ const gadgetsData = [
         product_id: 5,
         product_title: "Cricket Gloves",
         product_image: "https://images.unsplash.com/photo-1587450389751-2c4a66e8e8de",
-        category: "Cricket Equipment",
+        category: "Cricket Gear",
         price: 74.99,
         description: "Comfortable and durable gloves for better grip.",
         Specification: ["Material: Leather", "Size: M/L"],
@@ -74,34 +67,9 @@ const gadgetsData = [
         availability: true,
         rating: 4.9
     },
-    
-    // Second Category: Cricket Gear (2 items)
+    // Computers
     {
         product_id: 7,
-        product_title: "Cricket Shoes",
-        product_image: "https://images.unsplash.com/photo-1514963788024-b2674d4f4da8",
-        category: "Cricket Gear",
-        price: 89.99,
-        description: "High-performance shoes for optimal grip on the field.",
-        Specification: ["Material: Synthetic", "Size: 10"],
-        availability: true,
-        rating: 4.4
-    },
-    {
-        product_id: 8,
-        product_title: "Cricket Bag",
-        product_image: "https://images.unsplash.com/photo-1612922028393-cd7b41f4980c",
-        category: "Cricket Gear",
-        price: 39.99,
-        description: "Spacious bag to carry all your cricket gear.",
-        Specification: ["Material: Nylon", "Size: Standard"],
-        availability: true,
-        rating: 4.3
-    },
-
-    // Third Category: Computers (2 items)
-    {
-        product_id: 9,
         product_title: "Gaming Laptop",
         product_image: "https://images.unsplash.com/photo-1521747116042-5a810fda9664",
         category: "Computers",
@@ -111,21 +79,9 @@ const gadgetsData = [
         availability: true,
         rating: 4.7
     },
+    // Phones
     {
-        product_id: 10,
-        product_title: "Gaming Monitor",
-        product_image: "https://images.unsplash.com/photo-1541442583148-7f059a6ab6e6",
-        category: "Computers",
-        price: 299.99,
-        description: "Ultra HD gaming monitor for an immersive experience.",
-        Specification: ["Resolution: 3840 x 2160", "Size: 27 inches"],
-        availability: true,
-        rating: 4.8
-    },
-
-    // Fourth Category: Phones (4 items)
-    {
-        product_id: 11,
+        product_id: 8,
         product_title: "Smartphone X Pro",
         product_image: "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0",
         category: "Phones",
@@ -135,8 +91,22 @@ const gadgetsData = [
         availability: true,
         rating: 4.8
     },
+    // Smart Watches
     {
-        product_id: 12,
+        product_id: 9,
+        product_title: "Smart Watch Series 6",
+        product_image: "https://images.unsplash.com/photo-1603393946400-7c2229ef6f5c",
+        category: "Smart Watches",
+        price: 199.99,
+        description: "Smart watch with fitness tracking and notifications.",
+        Specification: ["Water Resistant: Yes", "Battery Life: 18 hours"],
+        availability: true,
+        rating: 4.6
+    },
+    
+    // Additional Phones
+    {
+        product_id: 11,
         product_title: "Galaxy Z Flip",
         product_image: "https://images.unsplash.com/photo-1611670820244-1e7763b6f2b4",
         category: "Phones",
@@ -147,7 +117,7 @@ const gadgetsData = [
         rating: 4.5
     },
     {
-        product_id: 13,
+        product_id: 12,
         product_title: "iPhone 13 Pro",
         product_image: "https://images.unsplash.com/photo-1632949175000-23a5bcf96268",
         category: "Phones",
@@ -156,6 +126,17 @@ const gadgetsData = [
         Specification: ["Display: 6.1 inches", "Camera: Triple 12MP", "Battery: 3095 mAh"],
         availability: true,
         rating: 4.9
+    },
+    {
+        product_id: 13,
+        product_title: "OnePlus 9",
+        product_image: "https://images.unsplash.com/photo-1620516753255-e0988f7e1305",
+        category: "Phones",
+        price: 729.99,
+        description: "Fast charging smartphone with great camera quality.",
+        Specification: ["Display: 6.55 inches", "Camera: 48MP", "Battery: 4500 mAh"],
+        availability: true,
+        rating: 4.6
     },
     {
         product_id: 14,
@@ -170,38 +151,5 @@ const gadgetsData = [
     }
 ];
 
-const categories = ['All', 'Cricket Equipment', 'Cricket Gear', 'Computers', 'Phones', 'Smart Watches', 'Chargers'];
 
-const Home = () => {
-    const [selectedCategory, setSelectedCategory] = useState('All');
-
-    const filteredGadgets = selectedCategory === 'All'
-        ? gadgetsData
-        : gadgetsData.filter(gadget => gadget.category === selectedCategory);
-
-    return (
-        <div className="container mx-auto p-4">
-            {/* <Navbar /> */}
-            {/* <Banner></Banner> */}
-            <div className="flex mt-6">
-               
-                <div className="w-2/4 lg:w-1/4 mt-4 mr-4">
-                    <CategoriesSidebar 
-                        categories={categories} 
-                        selectedCategory={selectedCategory} 
-                        onCategorySelect={setSelectedCategory} 
-                    />
-                    
-                    
-                </div>
-                
-              
-                <div className="w-3/4">
-                    <GadgetsGrid gadgets={filteredGadgets} />
-                </div>
-            </div>
-        </div>
-    );
-};
-
-export default Home;
+export default gadgetsData;

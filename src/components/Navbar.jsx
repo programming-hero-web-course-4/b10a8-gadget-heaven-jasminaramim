@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { FiShoppingCart, FiHeart } from 'react-icons/fi';
@@ -11,14 +12,15 @@ const Navbar = () => {
     const { wishlistItems } = useWishlist(); 
     const location = useLocation(); 
 
-    
-    const navbarBgColor = location.pathname === '/' ? 'bg-purple-600 text-white' : 'bg-white text-purple-600';
-
-    
+ 
     const isHomePage = location.pathname === '/';
+    const isCategoryPage = location.pathname.startsWith('/home/');
+
+  
+    const navbarBgColor = isHomePage || isCategoryPage ? 'bg-purple-600 text-white' : 'bg-white text-purple-600';
 
     return (
-        <nav className={`lg:px-8 px-2 py-4 m-8 h-[560px] rounded-lg  ${navbarBgColor}`}>
+        <nav className={`lg:px-8 px-2 py-4 m-8 h-[560px] rounded-lg ${navbarBgColor}`}>
             <div className="flex items-center justify-between">
                 <div className="lg:text-2xl text-sm font-bold">
                     Gadget Heaven
@@ -52,7 +54,7 @@ const Navbar = () => {
                 </div>
 
                 <div className="flex space-x-4">
-                    {/* Cart Icon with Badge */}
+               
                     <div className="relative">
                         <button className="lg:w-10 lg:h-10 mt-2 lg:mt-0 ml-2 lg:ml-0 w-5 h-5 bg-white rounded-full flex items-center justify-center text-purple-600 hover:bg-gray-200">
                             <FiShoppingCart className='w-4' size={20} />
@@ -64,7 +66,6 @@ const Navbar = () => {
                         </button>
                     </div>
 
-                    
                     <div className="relative">
                         <button className="lg:w-10 lg:h-10 mt-2 lg:mt-0 ml-2 lg:ml-0 w-5 h-5 bg-white rounded-full flex items-center justify-center text-purple-600 hover:bg-gray-200">
                             <FiHeart className='w-4' size={20} />
@@ -78,11 +79,12 @@ const Navbar = () => {
                 </div>
             </div>
 
-            {/*  Banner Display */}
-            {isHomePage && (
-                    <div>
-                             <div className="mt-10 text-center">
-                    <h2 className="text-4xl text-white font-extrabold mb-4">Upgrade Your Tech Accessorize with Gadget Heaven Accessories</h2>
+            {/* Banner Display */}
+            {(isHomePage || isCategoryPage) && (
+                <div className="mt-10 text-center">
+                    <h2 className="text-4xl text-white font-extrabold mb-4">
+                        Upgrade Your Tech Accessorize with Gadget Heaven Accessories
+                    </h2>
                     <p className="text-lg text-white mb-8">
                         Explore the latest gadgets that will take your experience to the next level. From smart devices to the coolest accessories, we have it all!
                     </p>
@@ -93,9 +95,6 @@ const Navbar = () => {
                         Shop Now
                     </button>
                 </div>
-               
-                    </div>
-                
             )}
         </nav>
     );
