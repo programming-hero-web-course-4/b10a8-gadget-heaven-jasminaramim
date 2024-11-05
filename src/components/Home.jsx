@@ -44,7 +44,7 @@ const gadgetsData = [
     {
         product_id: 4,
         product_title: "Cricket Pads",
-        product_image: "https://images.unsplash.com/photo-1620052829703-65de1f1c788e",
+        product_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD-fx5GMgyu_fixFpXUxzGQzKbtSOPAZzO6Q&s",
         category: "Cricket Equipment",
         price: 49.99,
         description: "High-quality batting pads for extra protection.",
@@ -55,7 +55,7 @@ const gadgetsData = [
     {
         product_id: 5,
         product_title: "Cricket Gloves",
-        product_image: "https://images.unsplash.com/photo-1587450389751-2c4a66e8e8de",
+        product_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnIE66Mlj0bLeNHiMaTxpxaXlajb6UlINwsQ&s",
         category: "Cricket Equipment",
         price: 74.99,
         description: "Comfortable and durable gloves for better grip.",
@@ -66,7 +66,7 @@ const gadgetsData = [
     {
         product_id: 6,
         product_title: "Cricket Training Set",
-        product_image: "https://images.unsplash.com/photo-1576091601617-4a5d2dc546a8",
+        product_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrzZcyqGr-I-LEDLH8BKYkCTwqi8flBQBooQ&s",
         category: "Cricket Equipment",
         price: 79.99,
         description: "All-in-one training set for budding cricketers.",
@@ -79,7 +79,7 @@ const gadgetsData = [
     {
         product_id: 7,
         product_title: "Cricket Shoes",
-        product_image: "https://images.unsplash.com/photo-1514963788024-b2674d4f4da8",
+        product_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5sOoAC7OOqtx6T-gXcKT2Wah2g3UwSnasAQ&s",
         category: "Cricket Gear",
         price: 89.99,
         description: "High-performance shoes for optimal grip on the field.",
@@ -90,7 +90,7 @@ const gadgetsData = [
     {
         product_id: 8,
         product_title: "Cricket Bag",
-        product_image: "https://images.unsplash.com/photo-1612922028393-cd7b41f4980c",
+        product_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScHtdqk5aa9VSIdJzenp58iV108wCE8kMWJw&s",
         category: "Cricket Gear",
         price: 39.99,
         description: "Spacious bag to carry all your cricket gear.",
@@ -103,7 +103,7 @@ const gadgetsData = [
     {
         product_id: 9,
         product_title: "Gaming Laptop",
-        product_image: "https://images.unsplash.com/photo-1521747116042-5a810fda9664",
+        product_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS2GWTOHXGEpDzybXGQq08glWO_RMWrtrAAw&s",
         category: "Computers",
         price: 999.99,
         description: "High-performance laptop for gaming and multitasking.",
@@ -114,7 +114,7 @@ const gadgetsData = [
     {
         product_id: 10,
         product_title: "Gaming Monitor",
-        product_image: "https://images.unsplash.com/photo-1541442583148-7f059a6ab6e6",
+        product_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQPZQvOR6ZRVrCu730AP-6C8M8wTicFsNVBQ&s",
         category: "Computers",
         price: 299.99,
         description: "Ultra HD gaming monitor for an immersive experience.",
@@ -127,7 +127,7 @@ const gadgetsData = [
     {
         product_id: 11,
         product_title: "Smartphone X Pro",
-        product_image: "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0",
+        product_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxAhQJB2YYb8lJpXekzlcGqTpu9PguyFuGow&s",
         category: "Phones",
         price: 799.99,
         description: "The latest smartphone with amazing features.",
@@ -138,7 +138,7 @@ const gadgetsData = [
     {
         product_id: 12,
         product_title: "Galaxy Z Flip",
-        product_image: "https://images.unsplash.com/photo-1611670820244-1e7763b6f2b4",
+        product_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfPn2KgcaRnF6RGhEZ7gzopsFrpxzMqnY8Qg&s",
         category: "Phones",
         price: 999.99,
         description: "Foldable smartphone with a unique design.",
@@ -149,7 +149,7 @@ const gadgetsData = [
     {
         product_id: 13,
         product_title: "iPhone 13 Pro",
-        product_image: "https://images.unsplash.com/photo-1632949175000-23a5bcf96268",
+        product_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjpbZwaa_jrPC9iKbpbVwqP9_9hsTbnB55Hg&s",
         category: "Phones",
         price: 1099.99,
         description: "The latest iPhone with powerful performance.",
@@ -157,17 +157,7 @@ const gadgetsData = [
         availability: true,
         rating: 4.9
     },
-    {
-        product_id: 14,
-        product_title: "Google Pixel 6",
-        product_image: "https://images.unsplash.com/photo-1635210130695-6325fbcdf161",
-        category: "Phones",
-        price: 599.99,
-        description: "Smartphone with the best camera features.",
-        Specification: ["Display: 6.4 inches", "Camera: 50MP", "Battery: 4614 mAh"],
-        availability: true,
-        rating: 4.7
-    }
+
 ];
 
 const categories = ['All', 'Cricket Equipment', 'Cricket Gear', 'Computers', 'Phones', 'Smart Watches', 'Chargers'];

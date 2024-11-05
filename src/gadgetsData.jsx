@@ -1,5 +1,6 @@
+
 const gadgetsData = [
-  
+    // First Category: Cricket Equipment (6 items)
     {
         product_id: 1,
         product_title: "Stylish Cricket Bat",
@@ -22,12 +23,11 @@ const gadgetsData = [
         availability: true,
         rating: 4.7
     },
-    // Cricket Gear
     {
         product_id: 3,
         product_title: "Cricket Helmet",
         product_image: "https://img.freepik.com/free-photo/cricket-match-with-player_23-2151702191.jpg?uid=R121149122&ga=GA1.1.1810294565.1709915967&semt=ais_hybrid",
-        category: "Cricket Gear",
+        category: "Cricket Equipment",
         price: 69.99,
         description: "Lightweight helmet with a comfortable fit.",
         Specification: ["Size: Adjustable", "Material: Polycarbonate"],
@@ -37,8 +37,8 @@ const gadgetsData = [
     {
         product_id: 4,
         product_title: "Cricket Pads",
-        product_image: "https://images.unsplash.com/photo-1620052829703-65de1f1c788e",
-        category: "Cricket Gear",
+        product_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD-fx5GMgyu_fixFpXUxzGQzKbtSOPAZzO6Q&s",
+        category: "Cricket Equipment",
         price: 49.99,
         description: "High-quality batting pads for extra protection.",
         Specification: ["Material: PVC", "Size: Standard"],
@@ -48,8 +48,8 @@ const gadgetsData = [
     {
         product_id: 5,
         product_title: "Cricket Gloves",
-        product_image: "https://images.unsplash.com/photo-1587450389751-2c4a66e8e8de",
-        category: "Cricket Gear",
+        product_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnIE66Mlj0bLeNHiMaTxpxaXlajb6UlINwsQ&s",
+        category: "Cricket Equipment",
         price: 74.99,
         description: "Comfortable and durable gloves for better grip.",
         Specification: ["Material: Leather", "Size: M/L"],
@@ -59,7 +59,7 @@ const gadgetsData = [
     {
         product_id: 6,
         product_title: "Cricket Training Set",
-        product_image: "https://images.unsplash.com/photo-1576091601617-4a5d2dc546a8",
+        product_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrzZcyqGr-I-LEDLH8BKYkCTwqi8flBQBooQ&s",
         category: "Cricket Equipment",
         price: 79.99,
         description: "All-in-one training set for budding cricketers.",
@@ -67,11 +67,36 @@ const gadgetsData = [
         availability: true,
         rating: 4.9
     },
-    // Computers
+    
+    // Second Category: Cricket Gear (2 items)
     {
         product_id: 7,
+        product_title: "Cricket Shoes",
+        product_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5sOoAC7OOqtx6T-gXcKT2Wah2g3UwSnasAQ&s",
+        category: "Cricket Gear",
+        price: 89.99,
+        description: "High-performance shoes for optimal grip on the field.",
+        Specification: ["Material: Synthetic", "Size: 10"],
+        availability: true,
+        rating: 4.4
+    },
+    {
+        product_id: 8,
+        product_title: "Cricket Bag",
+        product_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScHtdqk5aa9VSIdJzenp58iV108wCE8kMWJw&s",
+        category: "Cricket Gear",
+        price: 39.99,
+        description: "Spacious bag to carry all your cricket gear.",
+        Specification: ["Material: Nylon", "Size: Standard"],
+        availability: true,
+        rating: 4.3
+    },
+
+    // Third Category: Computers (2 items)
+    {
+        product_id: 9,
         product_title: "Gaming Laptop",
-        product_image: "https://images.unsplash.com/photo-1521747116042-5a810fda9664",
+        product_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS2GWTOHXGEpDzybXGQq08glWO_RMWrtrAAw&s",
         category: "Computers",
         price: 999.99,
         description: "High-performance laptop for gaming and multitasking.",
@@ -79,11 +104,23 @@ const gadgetsData = [
         availability: true,
         rating: 4.7
     },
-    // Phones
     {
-        product_id: 8,
+        product_id: 10,
+        product_title: "Gaming Monitor",
+        product_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQPZQvOR6ZRVrCu730AP-6C8M8wTicFsNVBQ&s",
+        category: "Computers",
+        price: 299.99,
+        description: "Ultra HD gaming monitor for an immersive experience.",
+        Specification: ["Resolution: 3840 x 2160", "Size: 27 inches"],
+        availability: true,
+        rating: 4.8
+    },
+
+    // Fourth Category: Phones (4 items)
+    {
+        product_id: 11,
         product_title: "Smartphone X Pro",
-        product_image: "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0",
+        product_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxAhQJB2YYb8lJpXekzlcGqTpu9PguyFuGow&s",
         category: "Phones",
         price: 799.99,
         description: "The latest smartphone with amazing features.",
@@ -91,24 +128,10 @@ const gadgetsData = [
         availability: true,
         rating: 4.8
     },
-    // Smart Watches
     {
-        product_id: 9,
-        product_title: "Smart Watch Series 6",
-        product_image: "https://images.unsplash.com/photo-1603393946400-7c2229ef6f5c",
-        category: "Smart Watches",
-        price: 199.99,
-        description: "Smart watch with fitness tracking and notifications.",
-        Specification: ["Water Resistant: Yes", "Battery Life: 18 hours"],
-        availability: true,
-        rating: 4.6
-    },
-    
-    // Additional Phones
-    {
-        product_id: 11,
+        product_id: 12,
         product_title: "Galaxy Z Flip",
-        product_image: "https://images.unsplash.com/photo-1611670820244-1e7763b6f2b4",
+        product_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfPn2KgcaRnF6RGhEZ7gzopsFrpxzMqnY8Qg&s",
         category: "Phones",
         price: 999.99,
         description: "Foldable smartphone with a unique design.",
@@ -117,9 +140,9 @@ const gadgetsData = [
         rating: 4.5
     },
     {
-        product_id: 12,
+        product_id: 13,
         product_title: "iPhone 13 Pro",
-        product_image: "https://images.unsplash.com/photo-1632949175000-23a5bcf96268",
+        product_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjpbZwaa_jrPC9iKbpbVwqP9_9hsTbnB55Hg&s",
         category: "Phones",
         price: 1099.99,
         description: "The latest iPhone with powerful performance.",
@@ -127,29 +150,7 @@ const gadgetsData = [
         availability: true,
         rating: 4.9
     },
-    {
-        product_id: 13,
-        product_title: "OnePlus 9",
-        product_image: "https://images.unsplash.com/photo-1620516753255-e0988f7e1305",
-        category: "Phones",
-        price: 729.99,
-        description: "Fast charging smartphone with great camera quality.",
-        Specification: ["Display: 6.55 inches", "Camera: 48MP", "Battery: 4500 mAh"],
-        availability: true,
-        rating: 4.6
-    },
-    {
-        product_id: 14,
-        product_title: "Google Pixel 6",
-        product_image: "https://images.unsplash.com/photo-1635210130695-6325fbcdf161",
-        category: "Phones",
-        price: 599.99,
-        description: "Smartphone with the best camera features.",
-        Specification: ["Display: 6.4 inches", "Camera: 50MP", "Battery: 4614 mAh"],
-        availability: true,
-        rating: 4.7
-    }
-];
 
+];
 
 export default gadgetsData;

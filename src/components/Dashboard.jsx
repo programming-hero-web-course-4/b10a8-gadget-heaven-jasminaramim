@@ -3,44 +3,48 @@ import React, { useState, useEffect } from 'react';
 import { useCart } from './CartContext';
 import { useWishlist } from './WishlistContext';
 import { useNavigate } from 'react-router-dom';
-import CongratulationsModal from './CongratulationsModal'; 
+import CongratulationsModal from './CongratulationsModal';
+import { ToastContainer, toast } from 'react-toastify';
+import { FiX } from 'react-icons/fi';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Dashboard = () => {
-    const { cartItems, clearCart } = useCart(); 
-    const { wishlistItems } = useWishlist(); 
-    const [activeTab, setActiveTab] = useState("Cart"); 
-    const [sortedCartItems, setSortedCartItems] = useState([]); 
+    const { cartItems, clearCart, removeItemFromCart } = useCart();
+    const { wishlistItems } = useWishlist();
+    const [activeTab, setActiveTab] = useState("Cart");
+    const [sortedCartItems, setSortedCartItems] = useState([]);
     const [isModalOpen, setModalOpen] = useState(false);
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
 
-  
     const totalPrice = cartItems.reduce((sum, item) => sum + item.price, 0);
 
-   
     useEffect(() => {
         setSortedCartItems(cartItems);
     }, [cartItems]);
 
-   
     const sortByPrice = () => {
         const sortedItems = [...cartItems].sort((a, b) => b.price - a.price);
         setSortedCartItems(sortedItems);
     };
 
-   
     const handlePurchase = () => {
-        clearCart(); 
-        setModalOpen(true); 
+        clearCart();
+        setModalOpen(true);
     };
 
-  
     const handleCloseModal = () => {
         setModalOpen(false);
-        navigate('/'); 
+        navigate('/');
+    };
+
+    const handleDeleteItem = (itemId) => {
+        removeItemFromCart(itemId);
+        toast.success('Item removed from cart');
     };
 
     return (
         <div className="container mx-auto mt-8">
+            <ToastContainer position="top-center" autoClose={3000} hideProgressBar={false} />
             <div className='relative p-8 h-[400px] w-full -my-[500px] mb-20 bg-purple-500'>
                 <div>
                     <h1 className='text-3xl text-center text-white font-bold'>Dashboard</h1>
@@ -90,7 +94,13 @@ const Dashboard = () => {
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                         {sortedCartItems.map((item) => (
-                            <div key={item.product_id} className="border  p-4 rounded-lg shadow">
+                            <div key={item.product_id} className="border relative p-4 rounded-lg shadow">
+                                <button 
+                                    onClick={() => handleDeleteItem(item.product_id)}
+                                    className="absolute top-2 right-2 text-black rounded-full p-[3px] bg-red-500 hover:text-red-700"
+                                >
+                                    <FiX size={20} />
+                                </button>
                                 <img src={item.product_image} alt={item.product_title} className="lg:w-full w-[300px] lg:h-32 lg:object-cover rounded" />
                                 <h3 className="text-lg font-semibold mt-2">{item.product_title}</h3>
                                 <p className="text-gray-600">${item.price.toFixed(2)}</p>
@@ -117,7 +127,6 @@ const Dashboard = () => {
                 </div>
             )}
 
-            {/* Modal */}
             {isModalOpen && <CongratulationsModal onClose={handleCloseModal} />}
         </div>
     );
