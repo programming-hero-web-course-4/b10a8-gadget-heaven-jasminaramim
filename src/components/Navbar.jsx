@@ -4,6 +4,7 @@ import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { FiShoppingCart, FiHeart } from 'react-icons/fi';
 import { useCart } from './CartContext';
 import { useWishlist } from './WishlistContext';
+import Banner from './Banner';
 
 const Navbar = () => {
     const navigate = useNavigate();
@@ -23,7 +24,7 @@ const Navbar = () => {
                     Gadget Heaven
                 </div>
 
-                <div className="flex space-x-8">
+                <div className="flex space-x-3 lg:space-x-8">
                     <NavLink
                         to="/"
                         className={({ isActive }) =>
@@ -58,7 +59,7 @@ const Navbar = () => {
                     </NavLink>
                 </div>
 
-                <div className="flex space-x-4">
+                <div className="flex lg:space-x-4">
                     <div className="relative">
                         <button className="lg:w-10 lg:h-10 mt-2 lg:mt-0 ml-2 lg:ml-0 w-5 h-5 bg-white rounded-full flex items-center justify-center text-purple-600 hover:bg-gray-200">
                             <FiShoppingCart className='w-4' size={20} />
@@ -83,25 +84,12 @@ const Navbar = () => {
                 </div>
             </div>
 
-            {/* Banner Display */}
-            {(isHomePage || isCategoryPage) && (
-                <div className="mt-10 text-center">
-                    <h2 className="text-4xl text-white font-extrabold mb-4">
-                        Upgrade Your Tech Accessories with Gadget Heaven
-                    </h2>
-                    <p className="text-lg text-white mb-8">
-                        Explore the latest gadgets that will take your experience to the next level. From smart devices to the coolest accessories, we have it all!
-                    </p>
-                    <button
-                        onClick={() => navigate('/dashboard')}
-                        className="bg-white text-purple-600 font-semibold py-3 px-8 rounded-full hover:bg-gray-200 transition"
-                    >
-                        Shop Now
-                    </button>
-                </div>
-            )}
+         
+            {/* {(isHomePage || isCategoryPage) && <Banner />} */}
+            <Banner></Banner>
         </nav>
     );
 };
 
 export default Navbar;
+

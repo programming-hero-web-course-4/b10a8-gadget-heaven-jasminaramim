@@ -1,29 +1,27 @@
 
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';  
+
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 import Navbar from './components/Navbar';
 import Dashboard from './components/Dashboard';
 import Stats from './components/Stats';
 import Home from './components/Home';
 import Details from './components/Details';
-import AboutUs from './components/AboutUs'; 
-
+import AboutUs from './components/AboutUs';
 import { CartProvider } from './components/CartContext';
 import { WishlistProvider } from './components/WishlistContext';
 import NotFound from './components/NotFound';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Banner from './components/Banner';
-
-import CategoryPage from './CategoryPage';
 import Footer from '../Footer';
+import CategoryPage from './CategoryPage';
 
 const AppRoutes = () => {
-    const location = useLocation();
-
     return (
         <>
-            {location.pathname === '/' && <Banner />}
+        {location.pathname === '/' && <Banner />}
+        {/* //             <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} /> */}
             <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} />
             <Routes>
                 <Route
@@ -34,6 +32,7 @@ const AppRoutes = () => {
                                 <title>Home - Gadget Heaven</title>
                                 <link rel="icon" href="https://raw.githubusercontent.com/ProgrammingHero1/B10-A8-gadget-heaven/refs/heads/main/assets/favicon-16x16.png" />
                             </Helmet>
+                            <Banner />
                             <Home />
                         </>
                     }
@@ -74,8 +73,8 @@ const AppRoutes = () => {
                         </>
                     }
                 />
-                <Route 
-                    path="/about-us" 
+                <Route
+                    path="/about-us"
                     element={
                         <>
                             <Helmet>
@@ -86,8 +85,8 @@ const AppRoutes = () => {
                         </>
                     }
                 />
-                <Route 
-                    path="/home/:category" 
+                <Route
+                    path="/home/:category"
                     element={
                         <>
                             <Helmet>
@@ -97,7 +96,6 @@ const AppRoutes = () => {
                         </>
                     }
                 />
-
                 <Route
                     path="*"
                     element={
@@ -122,6 +120,8 @@ const App = () => {
                 <CartProvider>
                     <Router>
                         <Navbar />
+                        {location.pathname === '/' && <Banner />}
+                        {/* {window.location.pathname === '#/' && <Banner />} */}
                         <AppRoutes />
                         <Footer />
                     </Router>
